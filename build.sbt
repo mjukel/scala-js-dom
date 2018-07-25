@@ -12,7 +12,7 @@ crossScalaVersions in ThisBuild := {
 scalaVersion in ThisBuild := crossScalaVersions.value.head
 
 val commonSettings = Seq(
-  version := "0.9.7-SNAPSHOT",
+  version := "0.9.7-KH",
   organization := "org.scala-js",
   scalacOptions ++= Seq("-deprecation", "-feature", "-Xfatal-warnings")
 )
@@ -95,17 +95,6 @@ pomExtra := (
 )
 
 pomIncludeRepository := { _ => false }
-
-lazy val readme = ScalatexReadme(
-  folder = "readme",
-  url = "https://github.com/scala-js/scala-js-dom/tree/master",
-  source = "Index",
-  targetFolder = "target/site",
-  autoResources = Seq("example-opt.js")
-).settings(
-  scalaVersion := "2.11.12",
-  (resources in Compile) += (fullOptJS in (example, Compile)).value.data
-)
 
 lazy val example = project.
   enablePlugins(ScalaJSPlugin).
